@@ -1,22 +1,3 @@
-.board-swimlane > td:first-child > div > div {
-  opacity: .5;
-  filter: saturate(0.6) brightness(1.2);
-}
-.board-swimlane > td:nth-last-child(3) > div > div,
-.board-swimlane > td:nth-last-child(2) > div > div,
-.board-swimlane > td:last-child > div > div {
-  opacity: .5;
-  filter: saturate(0.6) brightness(1.2);
-  font-size: .6em;
-}
-.board-swimlane > td:first-child > div > div:hover,
-.board-swimlane > td:nth-last-child(3) > div > div:hover,
-.board-swimlane > td:nth-last-child(2) > div > div:hover,
-.board-swimlane > td:last-child > div > div:hover {
-  opacity: 1;
-  filter: saturate(1) brightness(1);
-}
-
 .board-column-header-task-count {
   margin-left: .5em;
 }
