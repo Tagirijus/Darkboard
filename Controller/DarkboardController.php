@@ -24,6 +24,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'layout_smaller_scrollbars' => $this->configModel->get('darkboard_layout_smaller_scrollbars', 1),
             'layout_comment_mid' => $this->configModel->get('darkboard_layout_comment_mid', 1),
 
+            // font
+            'font_sidebar_smaller' => $this->configModel->get('darkboard_font_sidebar_smaller', 1),
+
             // color
             'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 1),
 
@@ -44,6 +47,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             // layout
             'darkboard_layout_smaller_scrollbars' => isset($form['layout_smaller_scrollbars']) ? 1 : 0,
             'darkboard_layout_comment_mid' => isset($form['layout_comment_mid']) ? 1 : 0,
+
+            // font
+            'darkboard_font_sidebar_smaller' => isset($form['font_sidebar_smaller']) ? 1 : 0,
 
             // color
             'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
@@ -80,8 +86,13 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         if ($this->configModel->get('darkboard_layout_smaller_scrollbars', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_layout_smaller_scrollbars.min.css');
         }
-        if ($this->configModel->get('darkboard_layout_comment mid', 1) == 1) {
+        if ($this->configModel->get('darkboard_layout_comment_mid', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_layout_comment_mid.min.css');
+        }
+
+        // font
+        if ($this->configModel->get('darkboard_font_sidebar_smaller', 1) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_sidebar_smaller.min.css');
         }
 
         // color

@@ -53,6 +53,26 @@
 
 
 
+    <!-- Font -->
+
+    <p>
+        <h2><?= t('Font') ?></h2>
+    </p>
+
+    <div class="task-form-container">
+
+        <div class="task-form-main-column">
+            <?= $this->form->label(t('Smaller font in the sidebar'), 'font_sidebar_smaller') ?>
+            <?= $this->form->checkbox('font_sidebar_smaller', t('enabled'), 1, $font_sidebar_smaller) ?>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+
+
+
     <!-- Color -->
 
     <p>

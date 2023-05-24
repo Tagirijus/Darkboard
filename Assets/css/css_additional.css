@@ -17,10 +17,6 @@
   filter: saturate(1) brightness(1);
 }
 
-.sidebar > ul > li {
-  font-size: .75em;
-}
-
 .board-column-header-task-count {
   margin-left: .5em;
 }

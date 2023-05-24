@@ -1,0 +1,5 @@
+/* smaller sidebar font size */
+
+.sidebar > ul > li {
+  font-size: .75em;
+}
