@@ -1,0 +1,5 @@
+/* Smaller font column 6 */
+
+.board-swimlane > td:nth-child(6) > div > div {
+  font-size: .6em;
+}

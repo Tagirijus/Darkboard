@@ -66,6 +66,16 @@
             <?= $this->form->checkbox('font_sidebar_smaller', t('enabled'), 1, $font_sidebar_smaller) ?>
         </div>
 
+        <div class="task-form-main-column">
+            <?= $this->form->label(t('Smaller font for specific columns'), 'font_smaller_column_1') ?>
+            <?= $this->form->checkbox('font_smaller_column_1', '1', 1, $font_smaller_column_1) ?>
+            <?= $this->form->checkbox('font_smaller_column_2', '2', 1, $font_smaller_column_2) ?>
+            <?= $this->form->checkbox('font_smaller_column_3', '3', 1, $font_smaller_column_3) ?>
+            <?= $this->form->checkbox('font_smaller_column_4', '4', 1, $font_smaller_column_4) ?>
+            <?= $this->form->checkbox('font_smaller_column_5', '5', 1, $font_smaller_column_5) ?>
+            <?= $this->form->checkbox('font_smaller_column_6', '6', 1, $font_smaller_column_6) ?>
+        </div>
+
     </div>
 
     <br>
@@ -91,8 +101,9 @@
             <?= $this->form->checkbox('color_weaken_column_1', '1', 1, $color_weaken_column_1) ?>
             <?= $this->form->checkbox('color_weaken_column_2', '2', 1, $color_weaken_column_2) ?>
             <?= $this->form->checkbox('color_weaken_column_3', '3', 1, $color_weaken_column_3) ?>
-            <?= $this->form->checkbox('color_weaken_column_4', '3', 1, $color_weaken_column_4) ?>
-            <?= $this->form->checkbox('color_weaken_column_5', '3', 1, $color_weaken_column_5) ?>
+            <?= $this->form->checkbox('color_weaken_column_4', '4', 1, $color_weaken_column_4) ?>
+            <?= $this->form->checkbox('color_weaken_column_5', '5', 1, $color_weaken_column_5) ?>
+            <?= $this->form->checkbox('color_weaken_column_6', '6', 1, $color_weaken_column_6) ?>
         </div>
 
     </div>

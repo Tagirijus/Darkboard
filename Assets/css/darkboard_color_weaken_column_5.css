@@ -1,4 +1,4 @@
-/* Weaken column 4 */
+/* Weaken column 5 */
 
 .board-swimlane > td:nth-child(5) > div > div {
   opacity: .5;

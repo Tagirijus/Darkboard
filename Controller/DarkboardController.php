@@ -26,6 +26,12 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // font
             'font_sidebar_smaller' => $this->configModel->get('darkboard_font_sidebar_smaller', 1),
+            'font_smaller_column_1' => $this->configModel->get('darkboard_font_smaller_column_1', 0),
+            'font_smaller_column_2' => $this->configModel->get('darkboard_font_smaller_column_2', 0),
+            'font_smaller_column_3' => $this->configModel->get('darkboard_font_smaller_column_3', 0),
+            'font_smaller_column_4' => $this->configModel->get('darkboard_font_smaller_column_4', 0),
+            'font_smaller_column_5' => $this->configModel->get('darkboard_font_smaller_column_5', 0),
+            'font_smaller_column_6' => $this->configModel->get('darkboard_font_smaller_column_6', 0),
 
             // color
             'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 0),
@@ -34,6 +40,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'color_weaken_column_3' => $this->configModel->get('darkboard_color_weaken_column_3', 0),
             'color_weaken_column_4' => $this->configModel->get('darkboard_color_weaken_column_4', 0),
             'color_weaken_column_5' => $this->configModel->get('darkboard_color_weaken_column_5', 0),
+            'color_weaken_column_6' => $this->configModel->get('darkboard_color_weaken_column_6', 0),
 
         ]));
     }
@@ -55,6 +62,12 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // font
             'darkboard_font_sidebar_smaller' => isset($form['font_sidebar_smaller']) ? 1 : 0,
+            'darkboard_font_smaller_column_1' => isset($form['font_smaller_column_1']) ? 1 : 0,
+            'darkboard_font_smaller_column_2' => isset($form['font_smaller_column_2']) ? 1 : 0,
+            'darkboard_font_smaller_column_3' => isset($form['font_smaller_column_3']) ? 1 : 0,
+            'darkboard_font_smaller_column_4' => isset($form['font_smaller_column_4']) ? 1 : 0,
+            'darkboard_font_smaller_column_5' => isset($form['font_smaller_column_5']) ? 1 : 0,
+            'darkboard_font_smaller_column_6' => isset($form['font_smaller_column_6']) ? 1 : 0,
 
             // color
             'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
@@ -63,6 +76,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'darkboard_color_weaken_column_3' => isset($form['color_weaken_column_3']) ? 1 : 0,
             'darkboard_color_weaken_column_4' => isset($form['color_weaken_column_4']) ? 1 : 0,
             'darkboard_color_weaken_column_5' => isset($form['color_weaken_column_5']) ? 1 : 0,
+            'darkboard_color_weaken_column_6' => isset($form['color_weaken_column_6']) ? 1 : 0,
         ];
 
         $this->languageModel->loadCurrentLanguage();
@@ -104,6 +118,24 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         if ($this->configModel->get('darkboard_font_sidebar_smaller', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_font_sidebar_smaller.min.css');
         }
+        if ($this->configModel->get('darkboard_font_smaller_column_1', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_smaller_column_1.min.css');
+        }
+        if ($this->configModel->get('darkboard_font_smaller_column_2', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_smaller_column_2.min.css');
+        }
+        if ($this->configModel->get('darkboard_font_smaller_column_3', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_smaller_column_3.min.css');
+        }
+        if ($this->configModel->get('darkboard_font_smaller_column_4', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_smaller_column_4.min.css');
+        }
+        if ($this->configModel->get('darkboard_font_smaller_column_5', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_smaller_column_5.min.css');
+        }
+        if ($this->configModel->get('darkboard_font_smaller_column_6', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_font_smaller_column_6.min.css');
+        }
 
         // color
         if ($this->configModel->get('darkboard_color_scrollbars', 0) == 1) {
@@ -123,6 +155,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         }
         if ($this->configModel->get('darkboard_color_weaken_column_5', 0) == 1) {
             $css .= file_get_contents($path . 'darkboard_color_weaken_column_5.min.css');
+        }
+        if ($this->configModel->get('darkboard_color_weaken_column_6', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_weaken_column_6.min.css');
         }
 
         return $this->response->css($css);
