@@ -5,4 +5,5 @@ return array(
     'enabled' => 'aktiviert',
     'Slight zoom animation on hovering over cards' => 'Kleine Zoom Animation beim Hovern über Karten',
     'Smaller scroll bars' => 'Kleinere Scroll-Bars',
+    'Colorize scrollbars' => 'Färbe Scroll-Bars',
 );

@@ -16,8 +16,16 @@ class DarkboardController extends \Kanboard\Controller\PluginController
     {
         $this->response->html($this->helper->layout->config('Darkboard:config/darkboard_config', [
             'title' => t('Darkboard') . ' &gt; ' . t('Settings'),
-            'card_hover_animation_zoom' => $this->configModel->get('darkboard_card_hover_animation_zoom', 1),
-            'smaller_scrollbars' => $this->configModel->get('darkboard_smaller_scrollbars', 1),
+
+            // animation
+            'animation_hover_card' => $this->configModel->get('darkboard_animation_hover_card', 1),
+
+            // layout
+            'layout_smaller_scrollbars' => $this->configModel->get('darkboard_layout_smaller_scrollbars', 1),
+
+            // color
+            'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 1),
+
         ]));
     }
 
@@ -29,8 +37,14 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $form = $this->request->getValues();
 
         $values = [
-            'darkboard_card_hover_animation_zoom' => isset($form['card_hover_animation_zoom']) ? 1 : 0,
-            'darkboard_smaller_scrollbars' => isset($form['smaller_scrollbars']) ? 1 : 0,
+            // animation
+            'darkboard_animation_hover_card' => isset($form['animation_hover_card']) ? 1 : 0,
+
+            // layout
+            'darkboard_layout_smaller_scrollbars' => isset($form['layout_smaller_scrollbars']) ? 1 : 0,
+
+            // color
+            'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
         ];
 
         $this->languageModel->loadCurrentLanguage();
@@ -56,13 +70,18 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $css = '';
 
         // Animation
-        if ($this->configModel->get('darkboard_card_hover_animation_zoom', 1) == 1) {
-            $css .= file_get_contents($path . 'darkboard_card_hover_animation_zoom.min.css');
+        if ($this->configModel->get('darkboard_animation_hover_card', 1) == 1) {
+            $css .= file_get_contents($path . 'darkboard_animation_hover_card.min.css');
         }
 
         // Layout
-        if ($this->configModel->get('darkboard_smaller_scrollbars', 1) == 1) {
-            $css .= file_get_contents($path . 'darkboard_smaller_scrollbars.min.css');
+        if ($this->configModel->get('darkboard_layout_smaller_scrollbars', 1) == 1) {
+            $css .= file_get_contents($path . 'darkboard_layout_smaller_scrollbars.min.css');
+        }
+
+        // color
+        if ($this->configModel->get('darkboard_color_scrollbars', 1) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_scrollbars.min.css');
         }
 
         return $this->response->css($css);
