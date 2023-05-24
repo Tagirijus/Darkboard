@@ -1,0 +1,11 @@
+/* put comments more into the mid of the screen */
+
+@media only screen and (min-width: 768px) {
+  .comments {
+    padding-left: 15em;
+  }
+  .comment {
+    text-align: justify;
+    width: 750px;
+  }
+}

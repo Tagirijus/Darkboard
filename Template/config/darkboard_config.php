@@ -6,6 +6,10 @@
 
     <br>
 
+
+
+    <!-- Animation -->
+
     <p>
         <h2><?= t('Animation') ?></h2>
     </p>
@@ -22,6 +26,10 @@
     <br>
     <br>
 
+
+
+    <!-- Layout -->
+
     <p>
         <h2><?= t('Layout') ?></h2>
     </p>
@@ -33,10 +41,19 @@
             <?= $this->form->checkbox('layout_smaller_scrollbars', t('enabled'), 1, $layout_smaller_scrollbars) ?>
         </div>
 
+        <div class="task-form-main-column">
+            <?= $this->form->label(t('Put comments on the task site in the middle of the screen'), 'layout_comment_mid') ?>
+            <?= $this->form->checkbox('layout_comment_mid', t('enabled'), 1, $layout_comment_mid) ?>
+        </div>
+
     </div>
 
     <br>
     <br>
+
+
+
+    <!-- Color -->
 
     <p>
         <h2><?= t('Color') ?></h2>
@@ -53,6 +70,7 @@
 
     <br>
     <br>
+
 
 
     <div class="task-form-bottom">
