@@ -1,0 +1,56 @@
+<?php
+
+namespace Kanboard\Plugin\Darkboard;
+
+use Kanboard\Core\Plugin\Base;
+// use Kanboard\Core\Translator;
+// use Kanboard\Plugin\Darkboard\AgeHelper;  // Helper Class and Filename should be exact
+// use Kanboard\Helper;  // Add core Helper for using forms etc. inside external templates
+
+class Plugin extends Base
+{
+    public function initialize()
+    {
+        // CSS - Asset Hook
+        $this->hook->on('template:layout:css', array('template' => 'plugins/Darkboard/Assets/css/darkboard.min.css'));
+    }
+
+    // public function onStartup()
+    // {
+    //     Translator::load($this->languageModel->getCurrentLanguage(), __DIR__.'/Locale');
+    // }
+
+    public function getPluginName()
+    {
+        return 'Darkboard';
+    }
+
+    public function getPluginDescription()
+    {
+        return t('This plugin slighlty changes the dark theme of the Kanboard installation.');
+    }
+
+    public function getPluginAuthor()
+    {
+        return 'Tagirijus';
+    }
+
+    public function getPluginVersion()
+    {
+        return '1.0.0';
+    }
+
+    public function getCompatibleVersion()
+    {
+        // Examples:
+        // >=1.0.37
+        // <1.0.37
+        // <=1.0.37
+        return '>=1.2.29';
+    }
+
+    public function getPluginHomepage()
+    {
+        return 'https://github.com/Tagirijus/Darkboard';
+    }
+}
