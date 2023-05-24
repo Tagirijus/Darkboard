@@ -3,7 +3,7 @@
 namespace Kanboard\Plugin\Darkboard;
 
 use Kanboard\Core\Plugin\Base;
-// use Kanboard\Core\Translator;
+use Kanboard\Core\Translator;
 // use Kanboard\Plugin\Darkboard\AgeHelper;  // Helper Class and Filename should be exact
 // use Kanboard\Helper;  // Add core Helper for using forms etc. inside external templates
 
@@ -12,13 +12,21 @@ class Plugin extends Base
     public function initialize()
     {
         // CSS - Asset Hook
-        $this->hook->on('template:layout:css', array('template' => 'plugins/Darkboard/Assets/css/darkboard.min.css'));
+        $this->template->hook->attach('template:layout:head', 'Darkboard:darkboard_css');
+
+        // View - Template Hook
+        $this->template->hook->attach(
+            'template:config:sidebar', 'Darkboard:config/darkboard_config_sidebar');
+
+        // Extra Page - Routes
+        $this->route->addRoute('/darkboard/css', 'DarkboardController', 'createCSS', 'Darkboard');
+        $this->route->addRoute('/darkboard/config', 'DarkboardController', 'show', 'Darkboard');
     }
 
-    // public function onStartup()
-    // {
-    //     Translator::load($this->languageModel->getCurrentLanguage(), __DIR__.'/Locale');
-    // }
+    public function onStartup()
+    {
+        Translator::load($this->languageModel->getCurrentLanguage(), __DIR__.'/Locale');
+    }
 
     public function getPluginName()
     {

@@ -1,0 +1,15 @@
+/* even smaller scroll bars  */
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background-color: rgb(42, 49, 64);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(82, 79, 94);
+}
+::-webkit-resizer {
+  background-color: rgb(52, 59, 74);
+}

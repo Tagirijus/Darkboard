@@ -4,6 +4,8 @@
 
 This plugin slighlty changes the dark theme of the Kanboard installation.
 
+It also gives the user some options to **configure** theme changes! Just in case not every aspect of the new theme is wanted. (;
+
 
 Compatibility
 -------------
