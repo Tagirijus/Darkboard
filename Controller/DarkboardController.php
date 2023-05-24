@@ -28,7 +28,12 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'font_sidebar_smaller' => $this->configModel->get('darkboard_font_sidebar_smaller', 1),
 
             // color
-            'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 1),
+            'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 0),
+            'color_weaken_column_1' => $this->configModel->get('darkboard_color_weaken_column_1', 0),
+            'color_weaken_column_2' => $this->configModel->get('darkboard_color_weaken_column_2', 0),
+            'color_weaken_column_3' => $this->configModel->get('darkboard_color_weaken_column_3', 0),
+            'color_weaken_column_4' => $this->configModel->get('darkboard_color_weaken_column_4', 0),
+            'color_weaken_column_5' => $this->configModel->get('darkboard_color_weaken_column_5', 0),
 
         ]));
     }
@@ -53,6 +58,11 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // color
             'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
+            'darkboard_color_weaken_column_1' => isset($form['color_weaken_column_1']) ? 1 : 0,
+            'darkboard_color_weaken_column_2' => isset($form['color_weaken_column_2']) ? 1 : 0,
+            'darkboard_color_weaken_column_3' => isset($form['color_weaken_column_3']) ? 1 : 0,
+            'darkboard_color_weaken_column_4' => isset($form['color_weaken_column_4']) ? 1 : 0,
+            'darkboard_color_weaken_column_5' => isset($form['color_weaken_column_5']) ? 1 : 0,
         ];
 
         $this->languageModel->loadCurrentLanguage();
@@ -96,8 +106,23 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         }
 
         // color
-        if ($this->configModel->get('darkboard_color_scrollbars', 1) == 1) {
+        if ($this->configModel->get('darkboard_color_scrollbars', 0) == 1) {
             $css .= file_get_contents($path . 'darkboard_color_scrollbars.min.css');
+        }
+        if ($this->configModel->get('darkboard_color_weaken_column_1', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_weaken_column_1.min.css');
+        }
+        if ($this->configModel->get('darkboard_color_weaken_column_2', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_weaken_column_2.min.css');
+        }
+        if ($this->configModel->get('darkboard_color_weaken_column_3', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_weaken_column_3.min.css');
+        }
+        if ($this->configModel->get('darkboard_color_weaken_column_4', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_weaken_column_4.min.css');
+        }
+        if ($this->configModel->get('darkboard_color_weaken_column_5', 0) == 1) {
+            $css .= file_get_contents($path . 'darkboard_color_weaken_column_5.min.css');
         }
 
         return $this->response->css($css);

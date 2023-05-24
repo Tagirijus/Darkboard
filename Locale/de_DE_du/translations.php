@@ -9,4 +9,5 @@ return array(
     'Colorize scrollbars' => 'Färbe Scroll-Bars',
     'Put comments on the task site in the middle of the screen' => 'Setze Kommentare in die Mitte des Bildschirms auf der Task-Seite',
     'Smaller font in the sidebar' => 'Kleinere Schrift in der Sidebar',
+    'Weaken specific columns' => 'Schwäche gewisse Spalten ab',
 );

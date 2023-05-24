@@ -86,6 +86,15 @@
             <?= $this->form->checkbox('color_scrollbars', t('enabled'), 1, $color_scrollbars) ?>
         </div>
 
+        <div class="task-form-main-column">
+            <?= $this->form->label(t('Weaken specific columns'), 'color_weaken_column_1') ?>
+            <?= $this->form->checkbox('color_weaken_column_1', '1', 1, $color_weaken_column_1) ?>
+            <?= $this->form->checkbox('color_weaken_column_2', '2', 1, $color_weaken_column_2) ?>
+            <?= $this->form->checkbox('color_weaken_column_3', '3', 1, $color_weaken_column_3) ?>
+            <?= $this->form->checkbox('color_weaken_column_4', '3', 1, $color_weaken_column_4) ?>
+            <?= $this->form->checkbox('color_weaken_column_5', '3', 1, $color_weaken_column_5) ?>
+        </div>
+
     </div>
 
     <br>
