@@ -1,0 +1,10 @@
+/* Dim column N */
+
+.board-swimlane > td:nth-child($NUMBER$) > div > div {
+  opacity: .5;
+  filter: saturate(0.6) brightness(1.2);
+}
+.board-swimlane > td:nth-child($NUMBER$) > div > div:hover {
+  opacity: 1;
+  filter: saturate(1) brightness(1);
+}

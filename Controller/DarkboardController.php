@@ -26,21 +26,11 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // font
             'font_sidebar_smaller' => $this->configModel->get('darkboard_font_sidebar_smaller', 1),
-            'font_smaller_column_1' => $this->configModel->get('darkboard_font_smaller_column_1', 0),
-            'font_smaller_column_2' => $this->configModel->get('darkboard_font_smaller_column_2', 0),
-            'font_smaller_column_3' => $this->configModel->get('darkboard_font_smaller_column_3', 0),
-            'font_smaller_column_4' => $this->configModel->get('darkboard_font_smaller_column_4', 0),
-            'font_smaller_column_5' => $this->configModel->get('darkboard_font_smaller_column_5', 0),
-            'font_smaller_column_6' => $this->configModel->get('darkboard_font_smaller_column_6', 0),
+            'font_smaller_columns' => $this->configModel->get('darkboard_font_smaller_columns', ''),
 
             // color
             'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 0),
-            'color_weaken_column_1' => $this->configModel->get('darkboard_color_weaken_column_1', 0),
-            'color_weaken_column_2' => $this->configModel->get('darkboard_color_weaken_column_2', 0),
-            'color_weaken_column_3' => $this->configModel->get('darkboard_color_weaken_column_3', 0),
-            'color_weaken_column_4' => $this->configModel->get('darkboard_color_weaken_column_4', 0),
-            'color_weaken_column_5' => $this->configModel->get('darkboard_color_weaken_column_5', 0),
-            'color_weaken_column_6' => $this->configModel->get('darkboard_color_weaken_column_6', 0),
+            'color_dim_columns' => $this->configModel->get('darkboard_color_dim_columns', ''),
 
         ]));
     }
@@ -62,21 +52,11 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // font
             'darkboard_font_sidebar_smaller' => isset($form['font_sidebar_smaller']) ? 1 : 0,
-            'darkboard_font_smaller_column_1' => isset($form['font_smaller_column_1']) ? 1 : 0,
-            'darkboard_font_smaller_column_2' => isset($form['font_smaller_column_2']) ? 1 : 0,
-            'darkboard_font_smaller_column_3' => isset($form['font_smaller_column_3']) ? 1 : 0,
-            'darkboard_font_smaller_column_4' => isset($form['font_smaller_column_4']) ? 1 : 0,
-            'darkboard_font_smaller_column_5' => isset($form['font_smaller_column_5']) ? 1 : 0,
-            'darkboard_font_smaller_column_6' => isset($form['font_smaller_column_6']) ? 1 : 0,
+            'darkboard_font_smaller_columns' => $form['font_smaller_columns'],
 
             // color
             'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
-            'darkboard_color_weaken_column_1' => isset($form['color_weaken_column_1']) ? 1 : 0,
-            'darkboard_color_weaken_column_2' => isset($form['color_weaken_column_2']) ? 1 : 0,
-            'darkboard_color_weaken_column_3' => isset($form['color_weaken_column_3']) ? 1 : 0,
-            'darkboard_color_weaken_column_4' => isset($form['color_weaken_column_4']) ? 1 : 0,
-            'darkboard_color_weaken_column_5' => isset($form['color_weaken_column_5']) ? 1 : 0,
-            'darkboard_color_weaken_column_6' => isset($form['color_weaken_column_6']) ? 1 : 0,
+            'darkboard_color_dim_columns' => $form['color_dim_columns'],
         ];
 
         $this->languageModel->loadCurrentLanguage();
@@ -101,65 +81,118 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $path = __DIR__ . '/../Assets/css/';
         $css = '';
 
-        // Animation
+        $css .= $this->createCSSAnimation($path);
+        $css .= $this->createCSSLayout($path);
+        $css .= $this->createCSSFont($path);
+        $css .= $this->createCSSColor($path);
+
+        return $this->response->css($css);
+    }
+
+    /**
+     * Create the CSS part for the animations.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function createCSSAnimation($path)
+    {
+        $css = '';
         if ($this->configModel->get('darkboard_animation_hover_card', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_animation_hover_card.min.css');
         }
+        return $css;
+    }
 
-        // Layout
+    /**
+     * Create the CSS part for the layout.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function createCSSLayout($path)
+    {
+        $css = '';
         if ($this->configModel->get('darkboard_layout_smaller_scrollbars', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_layout_smaller_scrollbars.min.css');
         }
         if ($this->configModel->get('darkboard_layout_comment_mid', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_layout_comment_mid.min.css');
         }
+        return $css;
+    }
 
-        // font
+    /**
+     * Create the CSS part for the font.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function createCSSFont($path)
+    {
+        $css = '';
         if ($this->configModel->get('darkboard_font_sidebar_smaller', 1) == 1) {
             $css .= file_get_contents($path . 'darkboard_font_sidebar_smaller.min.css');
         }
-        if ($this->configModel->get('darkboard_font_smaller_column_1', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_smaller_column_1.min.css');
-        }
-        if ($this->configModel->get('darkboard_font_smaller_column_2', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_smaller_column_2.min.css');
-        }
-        if ($this->configModel->get('darkboard_font_smaller_column_3', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_smaller_column_3.min.css');
-        }
-        if ($this->configModel->get('darkboard_font_smaller_column_4', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_smaller_column_4.min.css');
-        }
-        if ($this->configModel->get('darkboard_font_smaller_column_5', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_smaller_column_5.min.css');
-        }
-        if ($this->configModel->get('darkboard_font_smaller_column_6', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_smaller_column_6.min.css');
-        }
+        $css .= $this->cssFontSmallerColumns($path);
+        return $css;
+    }
 
-        // color
+    /**
+     * Generate the Font-Smaller-Columns CSS with the given user
+     * config string, which basically is a comma separated
+     * string containing the column numbers.
+     *
+     * @param  string $path
+     * @return string
+     */
+    public function cssFontSmallerColumns($path)
+    {
+        $css = '';
+        $user = explode(',', $this->configModel->get('darkboard_font_smaller_columns', ''));
+        foreach ($user as $column) {
+            $col = trim($column);
+            if (is_numeric($col)) {
+                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'darkboard_font_smaller_columns.min.css'));
+            }
+        }
+        return $css;
+    }
+
+    /**
+     * Create the CSS part for the colors.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function createCSSColor($path)
+    {
+        $css = '';
         if ($this->configModel->get('darkboard_color_scrollbars', 0) == 1) {
             $css .= file_get_contents($path . 'darkboard_color_scrollbars.min.css');
         }
-        if ($this->configModel->get('darkboard_color_weaken_column_1', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_weaken_column_1.min.css');
-        }
-        if ($this->configModel->get('darkboard_color_weaken_column_2', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_weaken_column_2.min.css');
-        }
-        if ($this->configModel->get('darkboard_color_weaken_column_3', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_weaken_column_3.min.css');
-        }
-        if ($this->configModel->get('darkboard_color_weaken_column_4', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_weaken_column_4.min.css');
-        }
-        if ($this->configModel->get('darkboard_color_weaken_column_5', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_weaken_column_5.min.css');
-        }
-        if ($this->configModel->get('darkboard_color_weaken_column_6', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_weaken_column_6.min.css');
-        }
+        $css .= $this->cssColorDimColumns($path);
+        return $css;
+    }
 
-        return $this->response->css($css);
+    /**
+     * Generate the Color-Dim-Columns CSS with the given user
+     * config string, which basically is a comma separated
+     * string containing the column numbers.
+     *
+     * @param  string $path
+     * @return string
+     */
+    public function cssColorDimColumns($path)
+    {
+        $css = '';
+        $user = explode(',', $this->configModel->get('darkboard_color_dim_columns', ''));
+        foreach ($user as $column) {
+            $col = trim($column);
+            if (is_numeric($col)) {
+                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'darkboard_color_dim_columns.min.css'));
+            }
+        }
+        return $css;
     }
 }

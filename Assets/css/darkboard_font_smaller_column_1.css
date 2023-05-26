@@ -1,5 +1,0 @@
-/* Smaller font column 1 */
-
-.board-swimlane > td:first-child > div > div {
-  font-size: .6em;
-}

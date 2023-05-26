@@ -1,0 +1,5 @@
+/* Smaller font column N */
+
+.board-swimlane > td:nth-child($NUMBER$) > div > div {
+  font-size: .6em;
+}
