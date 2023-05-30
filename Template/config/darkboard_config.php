@@ -67,7 +67,7 @@
         </div>
 
         <div class="task-form-main-column">
-            <?= $this->form->label(t('Smaller font for specific columns' . '. ' . t('Write the column numbers comma separated')), 'font_smaller_columns') ?>
+            <?= $this->form->label(t('Smaller font for specific columns') . '. ' . t('Write the column numbers comma separated'), 'font_smaller_columns') ?>
             <?= $this->form->text('font_smaller_columns', ['font_smaller_columns' => $font_smaller_columns]) ?>
         </div>
 

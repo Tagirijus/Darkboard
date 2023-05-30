@@ -9,7 +9,7 @@ return array(
     'Colorize scrollbars' => 'Färbe Scroll-Bars',
     'Put comments on the task site in the middle of the screen' => 'Setze Kommentare in die Mitte des Bildschirms auf der Task-Seite',
     'Smaller font in the sidebar' => 'Kleinere Schrift in der Sidebar',
-    'Write the column number comma separated' => 'Schreiben Sie die Spaltennummer Komma separiert',
+    'Write the column numbers comma separated' => 'Schreiben Sie die Spaltennummer Komma separiert',
     'Weaken specific columns' => 'Schwäche gewisse Spalten ab',
     'Smaller font for specific columns' => 'Kleinere Schrift für gewisse Spalten',
 );
