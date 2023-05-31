@@ -26,7 +26,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // font
             'font_sidebar_smaller' => $this->configModel->get('darkboard_font_sidebar_smaller', 1),
-            'font_smaller_columns' => $this->configModel->get('darkboard_font_smaller_columns', ''),
+            'font_smaller_card_in_column' => $this->configModel->get('darkboard_font_smaller_card_in_column', ''),
 
             // color
             'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 0),
@@ -52,7 +52,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // font
             'darkboard_font_sidebar_smaller' => isset($form['font_sidebar_smaller']) ? 1 : 0,
-            'darkboard_font_smaller_columns' => $form['font_smaller_columns'],
+            'darkboard_font_smaller_card_in_column' => $form['font_smaller_card_in_column'],
 
             // color
             'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
@@ -149,11 +149,11 @@ class DarkboardController extends \Kanboard\Controller\PluginController
     public function cssFontSmallerColumns($path)
     {
         $css = '';
-        $user = explode(',', $this->configModel->get('darkboard_font_smaller_columns', ''));
+        $user = explode(',', $this->configModel->get('darkboard_font_smaller_card_in_column', ''));
         foreach ($user as $column) {
             $col = trim($column);
             if (is_numeric($col)) {
-                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'darkboard_font_smaller_columns.min.css'));
+                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'darkboard_font_smaller_card_in_column.min.css'));
             }
         }
         return $css;
