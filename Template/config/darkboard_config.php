@@ -30,15 +30,6 @@
 
                 <tr>
                     <td>
-                        <?= $this->form->label(t('Colorize scrollbars'), 'global_colorize_scrollbars') ?>
-                    </td>
-                    <td>
-                        <?= $this->form->checkbox('global_colorize_scrollbars', t('enabled'), 1, $global_colorize_scrollbars) ?>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
                         <?= $this->form->label(t('Smaller font in the sidebar'), 'global_sidebar_font_smaller') ?>
                     </td>
                     <td>

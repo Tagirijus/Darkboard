@@ -47,7 +47,6 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $values = [
             // global
             'darkboard_global_smaller_scrollbars' => isset($form['global_smaller_scrollbars']) ? 1 : 0,
-            'darkboard_global_colorize_scrollbars' => isset($form['global_colorize_scrollbars']) ? 1 : 0,
             'darkboard_global_sidebar_font_smaller' => isset($form['global_sidebar_font_smaller']) ? 1 : 0,
 
             // board
@@ -105,9 +104,6 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $css = '';
         if ($this->configModel->get('darkboard_global_smaller_scrollbars', 1) == 1) {
             $css .= file_get_contents($path . 'global_smaller_scrollbars.min.css');
-        }
-        if ($this->configModel->get('darkboard_global_colorize_scrollbars', 0) == 1) {
-            $css .= file_get_contents($path . 'global_colorize_scrollbars.min.css');
         }
         if ($this->configModel->get('darkboard_global_sidebar_font_smaller', 1) == 1) {
             $css .= file_get_contents($path . 'global_sidebar_font_smaller.min.css');
