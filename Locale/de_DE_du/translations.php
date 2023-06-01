@@ -18,4 +18,5 @@ return array(
     'Hide the first unnecessary taskcounter in table header' => 'Verstecke ersten unnützen Aufgabenzähler im Tabellenkopf',
     'Hide counters in brackets, which are supposed to sum tasks / score over the swimlanes' => 'Verstecke die Zähler in den Klammern, die für das Summieren von Aufgaben / Wertung über die Swimlanes zuständig sind',
     'Bigger font in the tasklist' => 'Größere Schrift in der Aufgabenliste',
+    'Dim the accordion header on the task site, yet maybe also on other places on Kanboard' => 'Dimme den Akkordeon-Header auf der Aufgabenseite, aber ggf. auch an anderen Stellen auf Kanboard',
 );

@@ -167,6 +167,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Dim the accordion header on the task site, yet maybe also on other places on Kanboard'), 'task_dim_accordion') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('task_dim_accordion', t('enabled'), 1, $task_dim_accordion) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 

@@ -12,10 +12,11 @@ return array(
     'Colorize scrollbars' => 'Färbe Scroll-Bars',
     'Put comments on the task site in the middle of the screen' => 'Setze Kommentare in die Mitte des Bildschirms auf der Task-Seite',
     'Smaller font in the sidebar' => 'Kleinere Schrift in der Sidebar',
-    'Write the column numbers comma separated' => 'Schreiben Sie die Spaltennummer Komma separiert',
+    'Write the column numbers comma separated' => 'Schreibe die Spaltennummer Komma separiert',
     'Weaken specific columns' => 'Schwäche gewisse Spalten ab',
     'Smaller font for cards in specific columns' => 'Kleinere Schrift für Karten in gewissen Spalten',
     'Hide the first unnecessary taskcounter in table header' => 'Verstecke ersten unnützen Aufgabenzähler im Tabellenkopf',
     'Hide counters in brackets, which are supposed to sum tasks / score over the swimlanes' => 'Verstecke die Zähler in den Klammern, die für das Summieren von Aufgaben / Wertung über die Swimlanes zuständig sind',
     'Bigger font in the tasklist' => 'Größere Schrift in der Aufgabenliste',
+    'Dim the accordion header on the task site, yet maybe also on other places on Kanboard' => 'Dimme den Akkordeon-Header auf der Aufgabenseite, aber ggf. auch an anderen Stellen auf Kanboard',
 );

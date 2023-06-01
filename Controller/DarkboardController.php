@@ -33,6 +33,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // task
             'task_comment_align_center' => $this->configModel->get('darkboard_task_comment_align_center', 1),
+            'task_dim_accordion' => $this->configModel->get('darkboard_task_dim_accordion', 1),
 
         ]));
     }
@@ -61,6 +62,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // comments
             'darkboard_task_comment_align_center' => isset($form['task_comment_align_center']) ? 1 : 0,
+            'darkboard_task_dim_accordion' => isset($form['task_dim_accordion']) ? 1 : 0,
 
         ];
 
@@ -89,7 +91,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $css .= $this->createCSSGlobal($path . 'global/');
         $css .= $this->createCSSBoard($path . 'board/');
         $css .= $this->createCSSCard($path . 'card/');
-        $css .= $this->createCSSComment($path . 'comment/');
+        $css .= $this->createCSSTask($path . 'task/');
 
         return $this->response->css($css);
     }
@@ -193,16 +195,19 @@ class DarkboardController extends \Kanboard\Controller\PluginController
     }
 
     /**
-     * Create the CSS part for the comments.
+     * Create the CSS part for the task site.
      *
      * @param string $path
      * @return string
      */
-    public function createCSSComment($path)
+    public function createCSSTask($path)
     {
         $css = '';
         if ($this->configModel->get('darkboard_task_comment_align_center', 1) == 1) {
             $css .= file_get_contents($path . 'task_comment_align_center.min.css');
+        }
+        if ($this->configModel->get('darkboard_task_dim_accordion', 1) == 1) {
+            $css .= file_get_contents($path . 'task_dim_accordion.min.css');
         }
         return $css;
     }
