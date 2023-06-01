@@ -16,4 +16,5 @@ return array(
     'Weaken specific columns' => 'Schwäche gewisse Spalten ab',
     'Smaller font for cards in specific columns' => 'Kleinere Schrift für Karten in gewissen Spalten',
     'Hide the first unnecessary taskcounter in table header' => 'Verstecke ersten unnützen Aufgabenzähler im Tabellenkopf',
+    'Hide counters in brackets, which are supposed to sum tasks / score over the swimlanes' => 'Verstecke die Zähler in den Klammern, die für das Summieren von Aufgaben / Wertung über die Swimlanes zuständig sind',
 );

@@ -87,6 +87,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Hide counters in brackets, which are supposed to sum tasks / score over the swimlanes'), 'board_hide_swimlane_counters') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('board_hide_swimlane_counters', t('enabled'), 1, $board_hide_swimlane_counters) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
