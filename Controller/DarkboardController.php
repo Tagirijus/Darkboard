@@ -24,6 +24,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // board
             'board_dim_columns' => $this->configModel->get('darkboard_board_dim_columns', ''),
+            'board_hide_first_taskcounter' => $this->configModel->get('darkboard_board_hide_first_taskcounter', 1),
 
             // card
             'card_zoom_on_hover' => $this->configModel->get('darkboard_card_zoom_on_hover', 1),
@@ -50,6 +51,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // board
             'darkboard_board_dim_columns' => $form['board_dim_columns'],
+            'darkboard_board_hide_first_taskcounter' => $form['board_hide_first_taskcounter'],
 
             // card
             'darkboard_card_zoom_on_hover' => isset($form['card_zoom_on_hover']) ? 1 : 0,
@@ -121,6 +123,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
     {
         $css = '';
         $css .= $this->cssBoardDimColumns($path);
+        if ($this->configModel->get('darkboard_board_hide_first_taskcounter', 1) == 1) {
+            $css .= file_get_contents($path . 'board_hide_first_taskcounter.min.css');
+        }
         return $css;
     }
 

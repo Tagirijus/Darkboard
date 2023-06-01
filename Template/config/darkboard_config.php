@@ -78,6 +78,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Hide the first unnecessary taskcounter in table header'), 'board_hide_first_taskcounter') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('board_hide_first_taskcounter', t('enabled'), 1, $board_hide_first_taskcounter) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
