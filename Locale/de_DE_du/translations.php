@@ -15,4 +15,5 @@ return array(
     'Write the column numbers comma separated' => 'Schreibe die Spaltennummer Komma separiert',
     'Weaken specific columns' => 'Schwäche gewisse Spalten ab',
     'Smaller font for cards in specific columns' => 'Kleinere Schrift für Karten in gewissen Spalten',
+    'Hide the first unnecessary taskcounter in table header' => 'Verstecke ersten unnützen Aufgabenzähler im Tabellenkopf',
 );
