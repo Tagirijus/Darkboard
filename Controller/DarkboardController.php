@@ -19,8 +19,8 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // global
             'global_smaller_scrollbars' => $this->configModel->get('darkboard_global_smaller_scrollbars', 1),
-            'global_colorize_scrollbars' => $this->configModel->get('darkboard_global_colorize_scrollbars', 0),
             'global_sidebar_font_smaller' => $this->configModel->get('darkboard_global_sidebar_font_smaller', 1),
+            'global_tasklist_font_bigger' => $this->configModel->get('darkboard_global_tasklist_font_bigger', 1),
 
             // board
             'board_dim_columns' => $this->configModel->get('darkboard_board_dim_columns', ''),
@@ -48,6 +48,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             // global
             'darkboard_global_smaller_scrollbars' => isset($form['global_smaller_scrollbars']) ? 1 : 0,
             'darkboard_global_sidebar_font_smaller' => isset($form['global_sidebar_font_smaller']) ? 1 : 0,
+            'darkboard_global_tasklist_font_bigger' => isset($form['global_tasklist_font_bigger']) ? 1 : 0,
 
             // board
             'darkboard_board_dim_columns' => $form['board_dim_columns'],
@@ -107,6 +108,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         }
         if ($this->configModel->get('darkboard_global_sidebar_font_smaller', 1) == 1) {
             $css .= file_get_contents($path . 'global_sidebar_font_smaller.min.css');
+        }
+        if ($this->configModel->get('darkboard_global_tasklist_font_bigger', 1) == 1) {
+            $css .= file_get_contents($path . 'global_tasklist_font_bigger.min.css');
         }
         return $css;
     }

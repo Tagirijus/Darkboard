@@ -1,30 +1,4 @@
-.board-column-header-task-count {
-  margin-left: .5em;
-}
-.board-column-expanded-header > .pull-right {
-  color: rgb(200, 60, 110);
-}
-.board-column-header-task-count:nth-last-child(3) {
-  margin-right: .5em;
-}
-.board-column-header-task-count:nth-last-child(2) {
-  display: none;
-}
 
-.header.btnbox > .btn {
-  background-color: transparent;
-}
-.header.btnbox > .btn:hover {
-  color: #7272ab !important;
-}
-
-#board {
-  overflow: hidden;
-}
-
-.table-list-title {
-  font-size: 1.25em;
-}
 
 .accordion-title {
   opacity: .3;
@@ -38,4 +12,19 @@
 .table-list-details > span {
   opacity: 1;
   font-size: 1.1em;
+}
+
+
+
+
+/*  MACHE ICH GGF NOCH, WENN ES MICH DANN STÖRT ODER SO */
+
+
+
+/* Buttons, die mir beim Bigboard aufgefallen sind */
+.header.btnbox > .btn {
+  background-color: transparent;
+}
+.header.btnbox > .btn:hover {
+  color: #7272ab !important;
 }
