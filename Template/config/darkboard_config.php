@@ -147,10 +147,10 @@
 
 
 
-    <!-- Comment -->
+    <!-- Task -->
 
     <p>
-        <h2><?= t('Comment') ?></h2>
+        <h2><?= t('Task') ?></h2>
     </p>
 
     <div class="task-form-container">
@@ -160,10 +160,10 @@
 
                 <tr>
                     <td>
-                        <?= $this->form->label(t('Put comments on the task site in the middle of the screen'), 'comment_align_center') ?>
+                        <?= $this->form->label(t('Put comments on the task site in the middle of the screen'), 'task_comment_align_center') ?>
                     </td>
                     <td>
-                        <?= $this->form->checkbox('comment_align_center', t('enabled'), 1, $comment_align_center) ?>
+                        <?= $this->form->checkbox('task_comment_align_center', t('enabled'), 1, $task_comment_align_center) ?>
                     </td>
                 </tr>
 

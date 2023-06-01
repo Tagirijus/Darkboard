@@ -31,8 +31,8 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'card_zoom_on_hover' => $this->configModel->get('darkboard_card_zoom_on_hover', 1),
             'card_font_smaller' => $this->configModel->get('darkboard_card_font_smaller', ''),
 
-            // comment
-            'comment_align_center' => $this->configModel->get('darkboard_comment_align_center', 1),
+            // task
+            'task_comment_align_center' => $this->configModel->get('darkboard_task_comment_align_center', 1),
 
         ]));
     }
@@ -60,7 +60,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'darkboard_card_font_smaller' => $form['card_font_smaller'],
 
             // comments
-            'darkboard_comment_align_center' => isset($form['comment_align_center']) ? 1 : 0,
+            'darkboard_task_comment_align_center' => isset($form['task_comment_align_center']) ? 1 : 0,
 
         ];
 
@@ -201,8 +201,8 @@ class DarkboardController extends \Kanboard\Controller\PluginController
     public function createCSSComment($path)
     {
         $css = '';
-        if ($this->configModel->get('darkboard_comment_align_center', 1) == 1) {
-            $css .= file_get_contents($path . 'comment_align_center.min.css');
+        if ($this->configModel->get('darkboard_task_comment_align_center', 1) == 1) {
+            $css .= file_get_contents($path . 'task_comment_align_center.min.css');
         }
         return $css;
     }
