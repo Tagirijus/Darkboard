@@ -3,7 +3,10 @@
 return array(
     'Darkboard configuration' => 'Darkboard Einstellungen',
     'enabled' => 'aktiviert',
-    'Font' => 'Schrift',
+    'Global' => 'Global',
+    'Board' => 'Pinnwand',
+    'Card' => 'Karte',
+    'Comment' => 'Kommentar',
     'Slight zoom animation on hovering over cards' => 'Kleine Zoom Animation beim Hovern über Karten',
     'Smaller scroll bars' => 'Kleinere Scroll-Bars',
     'Colorize scrollbars' => 'Färbe Scroll-Bars',

@@ -8,17 +8,45 @@
 
 
 
-    <!-- Animation -->
+    <!-- Global -->
 
     <p>
-        <h2><?= t('Animation') ?></h2>
+        <h2><?= t('Global') ?></h2>
     </p>
 
     <div class="task-form-container">
 
         <div class="task-form-main-column">
-            <?= $this->form->label(t('Slight zoom animation on hovering over cards'), 'animation_hover_card') ?>
-            <?= $this->form->checkbox('animation_hover_card', t('enabled'), 1, $animation_hover_card) ?>
+            <table>
+
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Smaller scroll bars'), 'global_smaller_scrollbars') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('global_smaller_scrollbars', t('enabled'), 1, $global_smaller_scrollbars) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Colorize scrollbars'), 'global_colorize_scrollbars') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('global_colorize_scrollbars', t('enabled'), 1, $global_colorize_scrollbars) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Smaller font in the sidebar'), 'global_sidebar_font_smaller') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('global_sidebar_font_smaller', t('enabled'), 1, $global_sidebar_font_smaller) ?>
+                    </td>
+                </tr>
+
+            </table>
         </div>
 
     </div>
@@ -28,22 +56,29 @@
 
 
 
-    <!-- Layout -->
+    <!-- Board -->
 
     <p>
-        <h2><?= t('Layout') ?></h2>
+        <h2><?= t('Board') ?></h2>
     </p>
 
     <div class="task-form-container">
 
         <div class="task-form-main-column">
-            <?= $this->form->label(t('Smaller scroll bars'), 'layout_smaller_scrollbars') ?>
-            <?= $this->form->checkbox('layout_smaller_scrollbars', t('enabled'), 1, $layout_smaller_scrollbars) ?>
-        </div>
+            <table>
 
-        <div class="task-form-main-column">
-            <?= $this->form->label(t('Put comments on the task site in the middle of the screen'), 'layout_comment_mid') ?>
-            <?= $this->form->checkbox('layout_comment_mid', t('enabled'), 1, $layout_comment_mid) ?>
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Weaken specific columns') . '. ' . t('Write the column numbers comma separated'), 'board_dim_columns') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->text('board_dim_columns', ['board_dim_columns' => $board_dim_columns], [], [
+                            'style="width:auto;"'
+                        ]) ?>
+                    </td>
+                </tr>
+
+            </table>
         </div>
 
     </div>
@@ -53,22 +88,38 @@
 
 
 
-    <!-- Font -->
+    <!-- Card -->
 
     <p>
-        <h2><?= t('Font') ?></h2>
+        <h2><?= t('Card') ?></h2>
     </p>
 
     <div class="task-form-container">
 
         <div class="task-form-main-column">
-            <?= $this->form->label(t('Smaller font in the sidebar'), 'font_sidebar_smaller') ?>
-            <?= $this->form->checkbox('font_sidebar_smaller', t('enabled'), 1, $font_sidebar_smaller) ?>
-        </div>
+            <table>
 
-        <div class="task-form-main-column">
-            <?= $this->form->label(t('Smaller font for cards in specific columns') . '. ' . t('Write the column numbers comma separated'), 'font_smaller_card_in_column') ?>
-            <?= $this->form->text('font_smaller_card_in_column', ['font_smaller_card_in_column' => $font_smaller_card_in_column]) ?>
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Slight zoom animation on hovering over cards'), 'card_zoom_on_hover') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('card_zoom_on_hover', t('enabled'), 1, $card_zoom_on_hover) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Smaller font for cards in specific columns') . '. ' . t('Write the column numbers comma separated'), 'card_font_smaller') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->text('card_font_smaller', ['card_font_smaller' => $card_font_smaller], [], [
+                            'style="width:auto;"'
+                        ]) ?>
+                    </td>
+                </tr>
+
+            </table>
         </div>
 
     </div>
@@ -78,22 +129,27 @@
 
 
 
-    <!-- Color -->
+    <!-- Comment -->
 
     <p>
-        <h2><?= t('Color') ?></h2>
+        <h2><?= t('Comment') ?></h2>
     </p>
 
     <div class="task-form-container">
 
         <div class="task-form-main-column">
-            <?= $this->form->label(t('Colorize scrollbars'), 'color_scrollbars') ?>
-            <?= $this->form->checkbox('color_scrollbars', t('enabled'), 1, $color_scrollbars) ?>
-        </div>
+            <table>
 
-        <div class="task-form-main-column">
-            <?= $this->form->label(t('Weaken specific columns') . '. ' . t('Write the column numbers comma separated'), 'color_dim_columns') ?>
-            <?= $this->form->text('color_dim_columns', ['color_dim_columns' => $color_dim_columns]) ?>
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Put comments on the task site in the middle of the screen'), 'comment_align_center') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('comment_align_center', t('enabled'), 1, $comment_align_center) ?>
+                    </td>
+                </tr>
+
+            </table>
         </div>
 
     </div>

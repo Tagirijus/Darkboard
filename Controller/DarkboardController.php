@@ -17,20 +17,20 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $this->response->html($this->helper->layout->config('Darkboard:config/darkboard_config', [
             'title' => t('Darkboard') . ' &gt; ' . t('Settings'),
 
-            // animation
-            'animation_hover_card' => $this->configModel->get('darkboard_animation_hover_card', 1),
+            // global
+            'global_smaller_scrollbars' => $this->configModel->get('darkboard_global_smaller_scrollbars', 1),
+            'global_colorize_scrollbars' => $this->configModel->get('darkboard_global_colorize_scrollbars', 0),
+            'global_sidebar_font_smaller' => $this->configModel->get('darkboard_global_sidebar_font_smaller', 1),
 
-            // layout
-            'layout_smaller_scrollbars' => $this->configModel->get('darkboard_layout_smaller_scrollbars', 1),
-            'layout_comment_mid' => $this->configModel->get('darkboard_layout_comment_mid', 1),
+            // board
+            'board_dim_columns' => $this->configModel->get('darkboard_board_dim_columns', ''),
 
-            // font
-            'font_sidebar_smaller' => $this->configModel->get('darkboard_font_sidebar_smaller', 1),
-            'font_smaller_card_in_column' => $this->configModel->get('darkboard_font_smaller_card_in_column', ''),
+            // card
+            'card_zoom_on_hover' => $this->configModel->get('darkboard_card_zoom_on_hover', 1),
+            'card_font_smaller' => $this->configModel->get('darkboard_card_font_smaller', ''),
 
-            // color
-            'color_scrollbars' => $this->configModel->get('darkboard_color_scrollbars', 0),
-            'color_dim_columns' => $this->configModel->get('darkboard_color_dim_columns', ''),
+            // comment
+            'comment_align_center' => $this->configModel->get('darkboard_comment_align_center', 1),
 
         ]));
     }
@@ -43,20 +43,21 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $form = $this->request->getValues();
 
         $values = [
-            // animation
-            'darkboard_animation_hover_card' => isset($form['animation_hover_card']) ? 1 : 0,
+            // global
+            'darkboard_global_smaller_scrollbars' => isset($form['global_smaller_scrollbars']) ? 1 : 0,
+            'darkboard_global_colorize_scrollbars' => isset($form['global_colorize_scrollbars']) ? 1 : 0,
+            'darkboard_global_sidebar_font_smaller' => isset($form['global_sidebar_font_smaller']) ? 1 : 0,
 
-            // layout
-            'darkboard_layout_smaller_scrollbars' => isset($form['layout_smaller_scrollbars']) ? 1 : 0,
-            'darkboard_layout_comment_mid' => isset($form['layout_comment_mid']) ? 1 : 0,
+            // board
+            'darkboard_board_dim_columns' => $form['board_dim_columns'],
 
-            // font
-            'darkboard_font_sidebar_smaller' => isset($form['font_sidebar_smaller']) ? 1 : 0,
-            'darkboard_font_smaller_card_in_column' => $form['font_smaller_card_in_column'],
+            // card
+            'darkboard_card_zoom_on_hover' => isset($form['card_zoom_on_hover']) ? 1 : 0,
+            'darkboard_card_font_smaller' => $form['card_font_smaller'],
 
-            // color
-            'darkboard_color_scrollbars' => isset($form['color_scrollbars']) ? 1 : 0,
-            'darkboard_color_dim_columns' => $form['color_dim_columns'],
+            // comments
+            'darkboard_comment_align_center' => isset($form['comment_align_center']) ? 1 : 0,
+
         ];
 
         $this->languageModel->loadCurrentLanguage();
@@ -81,97 +82,45 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $path = __DIR__ . '/../Assets/css/';
         $css = '';
 
-        $css .= $this->createCSSAnimation($path);
-        $css .= $this->createCSSLayout($path);
-        $css .= $this->createCSSFont($path);
-        $css .= $this->createCSSColor($path);
+        $css .= $this->createCSSGlobal($path . 'global/');
+        $css .= $this->createCSSBoard($path . 'board/');
+        $css .= $this->createCSSCard($path . 'card/');
+        $css .= $this->createCSSComment($path . 'comment/');
 
         return $this->response->css($css);
     }
 
     /**
-     * Create the CSS part for the animations.
+     * Create the CSS part for the global.
      *
      * @param string $path
      * @return string
      */
-    public function createCSSAnimation($path)
+    public function createCSSGlobal($path)
     {
         $css = '';
-        if ($this->configModel->get('darkboard_animation_hover_card', 1) == 1) {
-            $css .= file_get_contents($path . 'darkboard_animation_hover_card.min.css');
+        if ($this->configModel->get('darkboard_global_smaller_scrollbars', 1) == 1) {
+            $css .= file_get_contents($path . 'global_smaller_scrollbars.min.css');
+        }
+        if ($this->configModel->get('darkboard_global_colorize_scrollbars', 0) == 1) {
+            $css .= file_get_contents($path . 'global_colorize_scrollbars.min.css');
+        }
+        if ($this->configModel->get('darkboard_global_sidebar_font_smaller', 1) == 1) {
+            $css .= file_get_contents($path . 'global_sidebar_font_smaller.min.css');
         }
         return $css;
     }
 
     /**
-     * Create the CSS part for the layout.
+     * Create the CSS part for the board.
      *
      * @param string $path
      * @return string
      */
-    public function createCSSLayout($path)
+    public function createCSSBoard($path)
     {
         $css = '';
-        if ($this->configModel->get('darkboard_layout_smaller_scrollbars', 1) == 1) {
-            $css .= file_get_contents($path . 'darkboard_layout_smaller_scrollbars.min.css');
-        }
-        if ($this->configModel->get('darkboard_layout_comment_mid', 1) == 1) {
-            $css .= file_get_contents($path . 'darkboard_layout_comment_mid.min.css');
-        }
-        return $css;
-    }
-
-    /**
-     * Create the CSS part for the font.
-     *
-     * @param string $path
-     * @return string
-     */
-    public function createCSSFont($path)
-    {
-        $css = '';
-        if ($this->configModel->get('darkboard_font_sidebar_smaller', 1) == 1) {
-            $css .= file_get_contents($path . 'darkboard_font_sidebar_smaller.min.css');
-        }
-        $css .= $this->cssFontSmallerColumns($path);
-        return $css;
-    }
-
-    /**
-     * Generate the Font-Smaller-Columns CSS with the given user
-     * config string, which basically is a comma separated
-     * string containing the column numbers.
-     *
-     * @param  string $path
-     * @return string
-     */
-    public function cssFontSmallerColumns($path)
-    {
-        $css = '';
-        $user = explode(',', $this->configModel->get('darkboard_font_smaller_card_in_column', ''));
-        foreach ($user as $column) {
-            $col = trim($column);
-            if (is_numeric($col)) {
-                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'darkboard_font_smaller_card_in_column.min.css'));
-            }
-        }
-        return $css;
-    }
-
-    /**
-     * Create the CSS part for the colors.
-     *
-     * @param string $path
-     * @return string
-     */
-    public function createCSSColor($path)
-    {
-        $css = '';
-        if ($this->configModel->get('darkboard_color_scrollbars', 0) == 1) {
-            $css .= file_get_contents($path . 'darkboard_color_scrollbars.min.css');
-        }
-        $css .= $this->cssColorDimColumns($path);
+        $css .= $this->cssBoardDimColumns($path);
         return $css;
     }
 
@@ -183,15 +132,67 @@ class DarkboardController extends \Kanboard\Controller\PluginController
      * @param  string $path
      * @return string
      */
-    public function cssColorDimColumns($path)
+    public function cssBoardDimColumns($path)
     {
         $css = '';
-        $user = explode(',', $this->configModel->get('darkboard_color_dim_columns', ''));
+        $user = explode(',', $this->configModel->get('darkboard_board_dim_columns', ''));
         foreach ($user as $column) {
             $col = trim($column);
             if (is_numeric($col)) {
-                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'darkboard_color_dim_columns.min.css'));
+                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'board_dim_columns.min.css'));
             }
+        }
+        return $css;
+    }
+
+    /**
+     * Create the CSS part for the cards.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function createCSSCard($path)
+    {
+        $css = '';
+        if ($this->configModel->get('darkboard_card_zoom_on_hover', 1) == 1) {
+            $css .= file_get_contents($path . 'card_zoom_on_hover.min.css');
+        }
+        $css .= $this->cssCardFontSmallerColumns($path);
+        return $css;
+    }
+
+    /**
+     * Generate the Font-Smaller-Columns CSS with the given user
+     * config string, which basically is a comma separated
+     * string containing the column numbers.
+     *
+     * @param  string $path
+     * @return string
+     */
+    public function cssCardFontSmallerColumns($path)
+    {
+        $css = '';
+        $user = explode(',', $this->configModel->get('darkboard_card_font_smaller', ''));
+        foreach ($user as $column) {
+            $col = trim($column);
+            if (is_numeric($col)) {
+                $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'card_font_smaller.min.css'));
+            }
+        }
+        return $css;
+    }
+
+    /**
+     * Create the CSS part for the comments.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function createCSSComment($path)
+    {
+        $css = '';
+        if ($this->configModel->get('darkboard_comment_align_center', 1) == 1) {
+            $css .= file_get_contents($path . 'comment_align_center.min.css');
         }
         return $css;
     }
