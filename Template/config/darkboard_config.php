@@ -46,6 +46,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Weaken the tasklist details'), 'global_tasklist_details_weaken') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('global_tasklist_details_weaken', t('enabled'), 1, $global_tasklist_details_weaken) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
