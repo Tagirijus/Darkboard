@@ -7,6 +7,7 @@ use Kanboard\Core\Translator;
 // use Kanboard\Plugin\Darkboard\AgeHelper;  // Helper Class and Filename should be exact
 // use Kanboard\Helper;  // Add core Helper for using forms etc. inside external templates
 use Kanboard\Model\TaskModel;
+use Kanboard\Plugin\Darkboard\Controller;
 
 
 class Plugin extends Base
@@ -15,6 +16,9 @@ class Plugin extends Base
     {
         // colors override
         // TODO: HOW??
+        // $this->container['colorModel'] = $this->container->factory(function ($container) {
+        //     return new Controller\ColorModel($container);
+        // });
 
         // CSS - Asset Hook
         $this->template->hook->attach('template:layout:head', 'Darkboard:darkboard_css');
