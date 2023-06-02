@@ -105,6 +105,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Add left margin on second taskcounter'), 'board_margin_left_on_taskcount') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('board_margin_left_on_taskcount', t('enabled'), 1, $board_margin_left_on_taskcount) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
