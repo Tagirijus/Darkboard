@@ -1,1 +1,1 @@
-.board-column-expanded.board-column-expanded-header>span:first-of-type{display:none}
+span:has(> span[id^=task-number-column]){display:none}
