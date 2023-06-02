@@ -164,6 +164,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('No border and slightly more padding on cards'), 'card_no_border') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('card_no_border', t('enabled'), 1, $card_no_border) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
