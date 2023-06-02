@@ -146,6 +146,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('More contrast for the font on the cards'), 'card_font_more_contrast') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('card_font_more_contrast', t('enabled'), 1, $card_font_more_contrast) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 

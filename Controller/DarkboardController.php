@@ -31,6 +31,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             // card
             'card_zoom_on_hover' => $this->configModel->get('darkboard_card_zoom_on_hover', 1),
             'card_font_smaller' => $this->configModel->get('darkboard_card_font_smaller', ''),
+            'card_font_more_contrast' => $this->configModel->get('darkboard_card_font_more_contrast', 1),
 
             // task
             'task_comment_align_center' => $this->configModel->get('darkboard_task_comment_align_center', 1),
@@ -61,6 +62,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             // card
             'darkboard_card_zoom_on_hover' => isset($form['card_zoom_on_hover']) ? 1 : 0,
             'darkboard_card_font_smaller' => $form['card_font_smaller'],
+            'darkboard_card_font_more_contrast' => isset($form['card_font_more_contrast']) ? 1 : 0,
 
             // comments
             'darkboard_task_comment_align_center' => isset($form['task_comment_align_center']) ? 1 : 0,
@@ -175,6 +177,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             $css .= file_get_contents($path . 'card_zoom_on_hover.min.css');
         }
         $css .= $this->cssCardFontSmallerColumns($path);
+        if ($this->configModel->get('darkboard_card_font_more_contrast', 1) == 1) {
+            $css .= file_get_contents($path . 'card_font_more_contrast.min.css');
+        }
         return $css;
     }
 
