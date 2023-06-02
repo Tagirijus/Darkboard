@@ -39,6 +39,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'task_comment_align_center' => $this->configModel->get('darkboard_task_comment_align_center', 1),
             'task_dim_accordion' => $this->configModel->get('darkboard_task_dim_accordion', 1),
             'task_better_contrast_title' => $this->configModel->get('darkboard_task_better_contrast_title', 1),
+            'task_summary_without_border' => $this->configModel->get('darkboard_task_summary_without_border', 1),
 
         ]));
     }
@@ -73,6 +74,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'darkboard_task_comment_align_center' => isset($form['task_comment_align_center']) ? 1 : 0,
             'darkboard_task_dim_accordion' => isset($form['task_dim_accordion']) ? 1 : 0,
             'darkboard_task_better_contrast_title' => isset($form['task_better_contrast_title']) ? 1 : 0,
+            'darkboard_task_summary_without_border' => isset($form['task_summary_without_border']) ? 1 : 0,
 
         ];
 
@@ -233,6 +235,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         }
         if ($this->configModel->get('darkboard_task_better_contrast_title', 1) == 1) {
             $css .= file_get_contents($path . 'task_better_contrast_title.min.css');
+        }
+        if ($this->configModel->get('darkboard_task_summary_without_border', 1) == 1) {
+            $css .= file_get_contents($path . 'task_summary_without_border.min.css');
         }
         return $css;
     }

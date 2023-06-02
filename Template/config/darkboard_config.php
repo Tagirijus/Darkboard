@@ -221,6 +221,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Task summary without border and a bit more padding'), 'task_summary_without_border') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('task_summary_without_border', t('enabled'), 1, $task_summary_without_border) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
