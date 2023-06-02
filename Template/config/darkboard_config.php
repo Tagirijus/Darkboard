@@ -203,6 +203,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Optimize the contrast for the task title'), 'task_better_contrast_title') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('task_better_contrast_title', t('enabled'), 1, $task_better_contrast_title) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 

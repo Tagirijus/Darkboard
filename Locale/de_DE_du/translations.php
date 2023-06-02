@@ -22,4 +22,5 @@ return array(
     'Weaken the tasklist details' => 'Schwäche die Aufgabenlist-Details',
     'More contrast for the font on the cards' => 'Mehr Kontrast für die Schrift auf den Karten',
     'Add left margin on second taskcounter' => 'Füge etwas Platz links neben dem zweiten Aufgabenzähler hinzu',
+    'Optimize the contrast for the task title' => 'Optimiere den Kontrast für den Task-Titel',
 );
