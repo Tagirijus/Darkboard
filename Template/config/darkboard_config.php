@@ -173,6 +173,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Change background color alpha on cards') . ' (WIP)', 'card_background_alpha') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('card_background_alpha', t('enabled'), 1, $card_background_alpha) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
