@@ -1,1 +1,1 @@
-#modal-box{position:fixed;max-height:calc(100% - 30px);top:2%;left:50%;transform:translateX(-50%);background:var(--body-background-color);overflow:auto;border-radius:5px;padding:1em 2em}
+#modal-box{position:fixed;max-height:calc(100% - 30px);top:2%;left:50%;transform:translateX(-50%);background:var(--body-background-color);overflow:auto;border-radius:5px;padding:1em}
