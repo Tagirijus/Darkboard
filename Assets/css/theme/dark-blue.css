@@ -215,3 +215,7 @@ select {
 .ui-datepicker-calendar th {
     background-color: var(--color-primary);
 }
+
+.task-tags li {
+    color: var(--header-background-color);
+}
