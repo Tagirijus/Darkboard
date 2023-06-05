@@ -1,6 +1,6 @@
 :root {
-    --body-background-color: rgb(30, 35, 45);
-    --header-background-color: rgb(35, 40, 45);
+    --body-background-color: rgb(40, 40, 50);
+    --header-background-color: rgb(35, 35, 40);
 
     --color-primary: rgb(220, 220, 230);
     --color-light: rgb(200, 200, 200);
@@ -133,7 +133,12 @@ html {
 
 .select-dropdown-menu-item.active {
     color: var(--color-primary);
-    background: rgb(50, 50, 60);
+    background: rgb(55, 55, 65);
+}
+
+.select-dropdown-menu-item {
+    color: var(--color-primary);
+    background: rgb(45, 45, 55);
 }
 
 .select2-dropdown, .select2-close-mask {
