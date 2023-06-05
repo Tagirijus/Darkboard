@@ -2,8 +2,8 @@
     --body-background-color: rgb(40, 40, 55);
     --header-background-color: rgb(35, 35, 45);
 
-    --color-primary: rgb(220, 220, 230);
-    --color-light: rgb(200, 200, 200);
+    --color-primary: rgb(200, 200, 210);
+    --color-light: rgb(180, 180, 190);
     --color-lighter: rgb(255, 255, 255);
     --color-dark: rgb(10, 10, 20);
     --color-medium: rgb(50, 50, 60);
@@ -76,7 +76,7 @@
 
     --table-list-header-border-color: rgba(147, 128, 108, 0.25);
     --table-list-header-background-color: rgb(49, 49, 59);
-    --table-list-nth-background-color: rgb(35, 35, 45);
+    --table-list-nth-background-color: rgb(40, 40, 50);
     --table-list-border-color: rgba(147, 128, 108, 0.25);
     --table-list-row-hover-border-color: rgba(147, 128, 108, 0.25);
     --table-list-row-background-color: rgb(40, 40, 50);
