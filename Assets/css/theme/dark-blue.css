@@ -1,17 +1,17 @@
 :root {
-    --body-background-color: rgb(40, 40, 60);
-    --header-background-color: rgb(25, 25, 40);
+    --body-background-color: rgb(30, 35, 45);
+    --header-background-color: rgb(35, 40, 45);
 
-    --color-primary: rgb(210, 210, 210);
-    --color-light: rgb(210, 210, 210);
+    --color-primary: rgb(220, 220, 230);
+    --color-light: rgb(200, 200, 200);
     --color-lighter: rgb(255, 255, 255);
-    --color-dark: #000;
-    --color-medium: #4f4c4c;
-    --color-error: #b94a48;
+    --color-dark: rgb(10, 10, 20);
+    --color-medium: rgb(50, 50, 60);
+    --color-error: rgb(189, 66, 91);
 
-    --link-color-primary: #aaa;
-    --link-color-focus: #ddd;
-    --link-color-hover: #ddd;
+    --link-color-primary: rgb(230, 230, 240);
+    --link-color-focus: rgb(242, 242, 242);
+    --link-color-hover: rgb(242, 242, 242);
 
     --alert-color-default: rgb(255, 255, 255);
     --alert-color-success: #def6de;
@@ -31,13 +31,13 @@
     --alert-border-color-info: #bce8f1;
     --alert-border-color-normal: #ddd;
 
-    --button-default-color: #333;
-    --button-default-background-color: #f5f5f5;
-    --button-default-border-color: #ddd;
+    --button-default-color: rgb(200, 205, 220);
+    --button-default-background-color: rgb(40, 40, 50);
+    --button-default-border-color: rgb(60, 60, 70);
 
-    --button-default-color-focus: #000;
-    --button-default-background-color-focus: #fafafa;
-    --button-default-border-color-focus: #bbb;
+    --button-default-color-focus: rgb(200, 205, 220);
+    --button-default-background-color-focus: rgb(50, 50, 60);
+    --button-default-border-color-focus: rgb(70, 70, 80);
 
     --button-primary-color: rgb(255, 255, 255);
     --button-primary-background-color: #333;
@@ -59,8 +59,8 @@
     --button-disabled-background-color: #f7f7f7;
     --button-disabled-border-color: #ccc;
 
-    --table-header-background-color: #1a1a1a;
-    --table-nth-background-color: #2d2c2c;
+    --table-header-background-color: rgb(40, 40, 50);
+    --table-nth-background-color: rgb(40, 45, 55);
     --table-border-color: rgba(147, 128, 108, 0.25);
 
     --avatar-color-letter: #fff;
@@ -75,29 +75,29 @@
     --board-task-limit-color: #DF5353;
 
     --table-list-header-border-color: rgba(147, 128, 108, 0.25);
-    --table-list-header-background-color: rgb(59, 59, 59);
-    --table-list-nth-background-color: #2d2c2c;
+    --table-list-header-background-color: rgb(49, 49, 59);
+    --table-list-nth-background-color: rgb(35, 35, 45);
     --table-list-border-color: rgba(147, 128, 108, 0.25);
     --table-list-row-hover-border-color: rgba(147, 128, 108, 0.25);
-    --table-list-row-background-color: #434343;
+    --table-list-row-background-color: rgb(40, 40, 50);
 
     --sidebar-border-color: rgba(147, 128, 108, 0.25);
 
-    --dropdown-background-color: #222;
-    --dropdown-border-color: #000;
-    --dropdown-li-border-color: #555;
+    --dropdown-background-color: rgb(47, 47, 55);
+    --dropdown-border-color: rgb(27, 27, 35);
+    --dropdown-li-border-color: var(--dropdown-border-color);
 
-    --input-addon-background-color: #1a1a1a;
+    --input-addon-background-color: var(--table-header-background-color);
     --input-addon-color: rgba(147, 128, 108, 0.25);
 
-    --views-background-color: #1a1a1a;
-    --views-border-color: rgba(147, 128, 108, 0.25);
-    --views-active-color: #949494;
+    --views-background-color: var(--table-header-background-color);
+    --views-border-color: var(--table-border-color);
+    --views-active-color: rgb(200, 200, 240);
 
     --input-focus-color: #e6edf3;
     --input-focus-border-color: rgba(82, 168, 236, 0.8);
     --input-focus-shadow-color: rgba(82, 168, 236, 0.6);
-    --input-background-color: rgb(59, 59, 59);
+    --input-background-color: rgb(40, 40, 55);
     --input-border-color: #777575;
     --input-placeholder-color: #666;
 
@@ -121,7 +121,7 @@
     --form-error-color: #f2332f;
 
     --comment-title-border-color: #eee;
-    --comment-nth-background-color: #2b2a2a;
+    --comment-nth-background-color: var(--table-nth-background-color);
     --comment-highlighted-background-color: #2b2901;
     --comment-highlighted-hover-background-color: #000;
     --comment-highlighted-border-color: #c09e05;
@@ -129,6 +129,11 @@
 
 html {
     color-scheme: dark;
+}
+
+.select-dropdown-menu-item.active {
+    color: var(--color-primary);
+    background: rgb(50, 50, 60);
 }
 
 .select2-dropdown, .select2-close-mask {
@@ -156,4 +161,29 @@ html {
 
 .task-summary-column a, .task-summary-column a:hover {
     color: #000;
+}
+
+.table-list-header .table-list-header-count {
+    color: var(--color-light);
+}
+
+.dropdown-submenu-open li:not(.no-hover):hover {
+    color: var(--color-primary);
+    background: rgb(100, 100, 120);
+}
+
+.comments .comment:nth-child(even):not(.comment-highlighted):hover {
+    background: var(--color-dark);
+}
+.comments .comment:nth-child(odd):not(.comment-highlighted) {
+    background: var(--header-background-color);
+}
+.comments .comment:nth-child(odd):not(.comment-highlighted):hover {
+    background: var(--color-dark);
+}
+
+.comment-sorting a {
+    color: var(--color-primary);
+    font-weight: 400;
+    text-decoration: none;
 }

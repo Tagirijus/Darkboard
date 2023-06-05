@@ -1,5 +1,7 @@
-.draggable-item {
-  color: black;
+.draggable-item,
+td a.dropdown-menu strong,
+.draggable-item a .fa {
+  color: rgb(30, 35, 40);
 }
 
 .task-board-title {
