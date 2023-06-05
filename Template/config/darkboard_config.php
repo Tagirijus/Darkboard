@@ -21,6 +21,24 @@
 
                 <tr>
                     <td>
+                        <?= $this->form->label(t('Color theme'), 'global_color_theme') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->select(
+                            'global_color_theme',
+                            [
+                                'dark-default' => 'Dark (default)',
+                                'dark-blue' => 'Dark Blue',
+                            ],
+                            [
+                                'global_color_theme' => $global_color_theme
+                            ]
+                        ) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
                         <?= $this->form->label(t('Smaller scroll bars'), 'global_smaller_scrollbars') ?>
                     </td>
                     <td>
@@ -52,6 +70,15 @@
                     </td>
                     <td>
                         <?= $this->form->checkbox('global_tasklist_details_weaken', t('enabled'), 1, $global_tasklist_details_weaken) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Give modals a padding'), 'global_modal_padding') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('global_modal_padding', t('enabled'), 1, $global_modal_padding) ?>
                     </td>
                 </tr>
 

@@ -18,10 +18,12 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'title' => t('Darkboard') . ' &gt; ' . t('Settings'),
 
             // global
+            'global_color_theme' => $this->configModel->get('darkboard_global_color_theme', 'dark-default'),
             'global_smaller_scrollbars' => $this->configModel->get('darkboard_global_smaller_scrollbars', 1),
             'global_sidebar_font_smaller' => $this->configModel->get('darkboard_global_sidebar_font_smaller', 1),
             'global_tasklist_font_bigger' => $this->configModel->get('darkboard_global_tasklist_font_bigger', 1),
             'global_tasklist_details_weaken' => $this->configModel->get('darkboard_global_tasklist_details_weaken', 1),
+            'global_modal_padding' => $this->configModel->get('darkboard_global_modal_padding', 1),
 
             // board
             'board_dim_columns' => $this->configModel->get('darkboard_board_dim_columns', ''),
@@ -54,10 +56,12 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
         $values = [
             // global
+            'darkboard_global_color_theme' => $form['global_color_theme'],
             'darkboard_global_smaller_scrollbars' => isset($form['global_smaller_scrollbars']) ? 1 : 0,
             'darkboard_global_sidebar_font_smaller' => isset($form['global_sidebar_font_smaller']) ? 1 : 0,
             'darkboard_global_tasklist_font_bigger' => isset($form['global_tasklist_font_bigger']) ? 1 : 0,
             'darkboard_global_tasklist_details_weaken' => isset($form['global_tasklist_details_weaken']) ? 1 : 0,
+            'darkboard_global_modal_padding' => isset($form['global_modal_padding']) ? 1 : 0,
 
             // board
             'darkboard_board_dim_columns' => $form['board_dim_columns'],
@@ -119,6 +123,13 @@ class DarkboardController extends \Kanboard\Controller\PluginController
     public function createCSSGlobal($path)
     {
         $css = '';
+        $theme = $this->configModel->get('darkboard_global_color_theme', 'dark-default');
+        $theme_path = $path . '../theme/' . $theme . '.min.css';
+        if (file_exists($theme_path)) {
+            $css .= file_get_contents($theme_path);
+        }
+        if ($this->configModel->get('darkboard_global_color_theme', 'dark-default') == 1) {
+        }
         if ($this->configModel->get('darkboard_global_smaller_scrollbars', 1) == 1) {
             $css .= file_get_contents($path . 'global_smaller_scrollbars.min.css');
         }
@@ -130,6 +141,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         }
         if ($this->configModel->get('darkboard_global_tasklist_details_weaken', 1) == 1) {
             $css .= file_get_contents($path . 'global_tasklist_details_weaken.min.css');
+        }
+        if ($this->configModel->get('darkboard_global_modal_padding', 1) == 1) {
+            $css .= file_get_contents($path . 'global_modal_padding.min.css');
         }
         return $css;
     }

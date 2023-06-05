@@ -26,4 +26,6 @@ return array(
     'No border and slightly more padding on cards' => 'Keinen Rand und etwas mehr Padding auf Karten',
     'Task summary without border and a bit more padding' => 'Aufgaben-Zusammenfassung ohne Rand und mi etwas mehr Padding',
     'Change background color alpha on cards' => 'Ändere Hintergrund-Farben-Alpha auf Karten',
+    'Color theme' => 'Farb-Thema',
+    'Give modals a padding' => 'Gib Modals ein Padding',
 );
