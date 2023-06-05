@@ -39,7 +39,7 @@
     --button-default-background-color-focus: rgb(50, 50, 60);
     --button-default-border-color-focus: rgb(70, 70, 80);
 
-    --button-primary-color: rgb(255, 255, 255);
+    --button-primary-color: rgb(245, 245, 255);
     --button-primary-background-color: #333;
     --button-primary-border-color: #444;
 
@@ -86,6 +86,7 @@
     --dropdown-background-color: rgb(47, 47, 55);
     --dropdown-border-color: rgb(27, 27, 35);
     --dropdown-li-border-color: var(--dropdown-border-color);
+    --dropdown-background-color-focus: rgb(100, 100, 120);
 
     --input-addon-background-color: var(--table-header-background-color);
     --input-addon-color: rgba(147, 128, 108, 0.25);
@@ -133,12 +134,12 @@ html {
 
 .select-dropdown-menu-item.active {
     color: var(--color-primary);
-    background: rgb(55, 55, 65);
+    background: var(--dropdown-background-color-focus);
 }
 
 .select-dropdown-menu-item {
     color: var(--color-primary);
-    background: rgb(45, 45, 55);
+    background: var(--dropdown-background-color);
 }
 
 .select2-dropdown, .select2-close-mask {
@@ -160,6 +161,20 @@ html {
     color: #fff;
 }
 
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: var(--dropdown-border-color);
+    color: var(--primary-color);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--dropdown-background-color-focus);
+    color: var(--primary-color);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--color-medium);
+}
+
 .task-board-title {
     color: #000;
 }
@@ -174,7 +189,7 @@ html {
 
 .dropdown-submenu-open li:not(.no-hover):hover {
     color: var(--color-primary);
-    background: rgb(100, 100, 120);
+    background: var(--dropdown-background-color-focus);
 }
 
 .comments .comment:nth-child(even):not(.comment-highlighted):hover {
@@ -191,4 +206,12 @@ html {
     color: var(--color-primary);
     font-weight: 400;
     text-decoration: none;
+}
+
+select {
+    background: var(--color-medium);
+}
+
+.ui-datepicker-calendar th {
+    background-color: var(--color-primary);
 }
