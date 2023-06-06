@@ -28,4 +28,5 @@ return array(
     'Change background color alpha on cards' => 'Ändere Hintergrund-Farben-Alpha auf Karten',
     'Color theme' => 'Farb-Thema',
     'Give modals a padding' => 'Gib Modals ein Padding',
+    'Make score on card bolder' => 'Mache Score auf der Karte noch fetter',
 );

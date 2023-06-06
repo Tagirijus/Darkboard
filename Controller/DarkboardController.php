@@ -37,6 +37,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'card_font_more_contrast' => $this->configModel->get('darkboard_card_font_more_contrast', 1),
             'card_no_border' => $this->configModel->get('darkboard_card_no_border', 1),
             'card_background_alpha' => $this->configModel->get('darkboard_card_background_alpha', 1),
+            'card_score_bolder' => $this->configModel->get('darkboard_card_score_bolder', 1),
 
             // task
             'task_comment_align_center' => $this->configModel->get('darkboard_task_comment_align_center', 1),
@@ -75,6 +76,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'darkboard_card_font_more_contrast' => isset($form['card_font_more_contrast']) ? 1 : 0,
             'darkboard_card_no_border' => isset($form['card_no_border']) ? 1 : 0,
             'darkboard_card_background_alpha' => isset($form['card_background_alpha']) ? 1 : 0,
+            'darkboard_card_score_bolder' => isset($form['card_score_bolder']) ? 1 : 0,
 
             // task
             'darkboard_task_comment_align_center' => isset($form['task_comment_align_center']) ? 1 : 0,
@@ -212,6 +214,9 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         }
         if ($this->configModel->get('darkboard_card_background_alpha', 1) == 1) {
             $css .= file_get_contents($path . 'card_background_alpha.min.css');
+        }
+        if ($this->configModel->get('darkboard_card_score_bolder', 1) == 1) {
+            $css .= file_get_contents($path . 'card_score_bolder.min.css');
         }
         return $css;
     }

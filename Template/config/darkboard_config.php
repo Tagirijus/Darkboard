@@ -209,6 +209,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Make score on card bolder'), 'card_score_bolder') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('card_score_bolder', t('enabled'), 1, $card_score_bolder) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 
