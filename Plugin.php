@@ -16,6 +16,9 @@ class Plugin extends Base
         // CSS - Asset Hook
         $this->template->hook->attach('template:layout:head', 'Darkboard:darkboard_css');
 
+        // Template Override
+        $this->template->setTemplateOverride('board/table_column', 'Darkboard:board/table_column');
+
         // View - Template Hook
         $this->template->hook->attach(
             'template:config:sidebar', 'Darkboard:config/darkboard_config_sidebar');

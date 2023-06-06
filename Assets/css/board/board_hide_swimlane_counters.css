@@ -1,6 +1,3 @@
-.board-column-expanded > .pull-right > span:first-of-type {
-  display: none;
-}
-.board-column-header-task-count:nth-last-child(2) {
+.swimlane-bracket-number {
   display: none;
 }
