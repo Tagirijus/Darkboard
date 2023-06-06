@@ -1,6 +1,6 @@
 :root {
     --body-background-color: rgb(40, 45, 55);
-    --header-background-color: rgb(35, 35, 45);
+    --header-background-color: rgb(35, 38, 45);
 
     --color-primary: rgb(210, 210, 220);
     --color-light: rgb(190, 190, 200);
@@ -98,7 +98,7 @@
     --input-focus-color: #e6edf3;
     --input-focus-border-color: rgba(82, 168, 236, 0.8);
     --input-focus-shadow-color: rgba(82, 168, 236, 0.6);
-    --input-background-color: rgb(40, 40, 55);
+    --input-background-color: rgb(40, 42, 55);
     --input-border-color: #777575;
     --input-placeholder-color: #666;
 
