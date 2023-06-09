@@ -113,7 +113,11 @@ class DarkboardController extends \Kanboard\Controller\PluginController
         $css .= $this->createCSSCard($path . 'card/');
         $css .= $this->createCSSTask($path . 'task/');
 
-        return $this->response->css($css);
+        $this->response->withStatusCode(200);
+        $this->response->withContentType('text/css; charset=utf-8');
+        $this->response->withBody($css);
+        $this->response->withCache(31536000);
+        return $this->response->send();
     }
 
     /**
