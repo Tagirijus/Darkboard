@@ -29,4 +29,6 @@ return array(
     'Color theme' => 'Farb-Thema',
     'Give modals a padding' => 'Gib Modals ein Padding',
     'Make score on card bolder' => 'Mache Score auf der Karte noch fetter',
+    'CSS for weakening the columns' => 'CSS für die Schwächung der Spalten',
+    'CSS for hovering the columns' => 'CSS für das Hovern der Spalten',
 );

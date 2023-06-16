@@ -116,6 +116,28 @@
 
                 <tr>
                     <td>
+                        <?= $this->form->label(t('CSS for weakening the columns'), 'board_dim_columns_css_weak') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->text('board_dim_columns_css_weak', ['board_dim_columns_css_weak' => $board_dim_columns_css_weak], [], [
+                            'style="width:auto;"'
+                        ]) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('CSS for hovering the columns'), 'board_dim_columns_css_hover') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->text('board_dim_columns_css_hover', ['board_dim_columns_css_hover' => $board_dim_columns_css_hover], [], [
+                            'style="width:auto;"'
+                        ]) ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
                         <?= $this->form->label(t('Hide the first unnecessary taskcounter in table header'), 'board_hide_first_taskcounter') ?>
                     </td>
                     <td>

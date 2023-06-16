@@ -27,6 +27,8 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // board
             'board_dim_columns' => $this->configModel->get('darkboard_board_dim_columns', ''),
+            'board_dim_columns_css_weak' => $this->configModel->get('darkboard_board_dim_columns_css_weak', 'opacity: .5; filter: saturate(0.6) brightness(1.2);'),
+            'board_dim_columns_css_hover' => $this->configModel->get('darkboard_board_dim_columns_css_hover', 'opacity: 1; filter: saturate(1) brightness(1);'),
             'board_hide_first_taskcounter' => $this->configModel->get('darkboard_board_hide_first_taskcounter', 1),
             'board_hide_swimlane_counters' => $this->configModel->get('darkboard_board_hide_swimlane_counters', 1),
             'board_margin_left_on_taskcount' => $this->configModel->get('darkboard_board_margin_left_on_taskcount', 1),
@@ -66,6 +68,8 @@ class DarkboardController extends \Kanboard\Controller\PluginController
 
             // board
             'darkboard_board_dim_columns' => $form['board_dim_columns'],
+            'darkboard_board_dim_columns_css_weak' => $form['board_dim_columns_css_weak'],
+            'darkboard_board_dim_columns_css_hover' => $form['board_dim_columns_css_hover'],
             'darkboard_board_hide_first_taskcounter' => isset($form['board_hide_first_taskcounter']) ? 1 : 0,
             'darkboard_board_hide_swimlane_counters' => isset($form['board_hide_swimlane_counters']) ? 1 : 0,
             'darkboard_board_margin_left_on_taskcount' => isset($form['board_margin_left_on_taskcount']) ? 1 : 0,
@@ -186,6 +190,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
      */
     public function cssBoardDimColumns($path)
     {
+        // do the column per column
         $css = '';
         $user = explode(',', $this->configModel->get('darkboard_board_dim_columns', ''));
         foreach ($user as $column) {
@@ -194,6 +199,14 @@ class DarkboardController extends \Kanboard\Controller\PluginController
                 $css .= str_replace('$NUMBER$', $col, file_get_contents($path . 'board_dim_columns.min.css'));
             }
         }
+
+        // do the config of the weak / hover CSS
+        $weak = $this->configModel->get('darkboard_board_dim_columns_css_weak', 'opacity: .5; filter: saturate(0.6) brightness(1.2);');
+        $hover = $this->configModel->get('darkboard_board_dim_columns_css_hover', 'opacity: 1; filter: saturate(1) brightness(1);');
+        $css = str_replace('/*!$WEAK$*/', $weak, $css);
+        $css = str_replace('/*!$HOVER$*/', $hover, $css);
+
+
         return $css;
     }
 
