@@ -219,3 +219,13 @@ select {
 .task-tags li {
     color: var(--header-background-color);
 }
+
+span.task-date-today {
+  color: rgb(200,50,150);
+  font-weight: bold;
+}
+
+span.task-date-overdue {
+  color: rgb(200,50,50);
+  font-weight: bold;
+}
