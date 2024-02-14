@@ -5,3 +5,10 @@
 .table-list-details > span {
   font-size: 1.1em;
 }
+.table-list-details > a {
+  text-decoration: none;
+  opacity: .5;
+}
+.table-list-details > a:hover {
+  text-decoration: underline;
+}

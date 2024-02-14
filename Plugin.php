@@ -18,6 +18,7 @@ class Plugin extends Base
 
         // Template Override
         $this->template->setTemplateOverride('board/table_column', 'Darkboard:board/table_column');
+        $this->template->setTemplateOverride('task_list/task_details', 'Darkboard:task_list/task_details');
 
         // View - Template Hook
         $this->template->hook->attach(
