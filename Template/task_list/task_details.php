@@ -1,7 +1,9 @@
 <div class="table-list-details">
-    <a href="/board/<?= $task['project_id'] ?>"><?= $this->text->e($task['project_name']) ?></a> &gt;
-    <?= $this->text->e($task['swimlane_name']) ?> &gt;
-    <?= $this->text->e($task['column_name']) ?>
+    <a href="/board/<?= $task['project_id'] ?>">
+        <?= $this->text->e($task['project_name']) ?> &gt;
+        <?= $this->text->e($task['swimlane_name']) ?> &gt;
+        <?= $this->text->e($task['column_name']) ?>
+    </a>
 
     <?php if (! empty($task['category_id'])): ?>
         <span class="table-list-category <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
