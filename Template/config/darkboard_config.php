@@ -240,6 +240,15 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <?= $this->form->label(t('Disable that a click on the card opens the task'), 'card_disable_click_opens_task') ?>
+                    </td>
+                    <td>
+                        <?= $this->form->checkbox('card_disable_click_opens_task', t('enabled'), 1, $card_disable_click_opens_task) ?>
+                    </td>
+                </tr>
+
             </table>
         </div>
 

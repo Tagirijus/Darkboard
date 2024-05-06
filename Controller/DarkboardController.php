@@ -40,6 +40,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'card_no_border' => $this->configModel->get('darkboard_card_no_border', 1),
             'card_background_alpha' => $this->configModel->get('darkboard_card_background_alpha', 1),
             'card_score_bolder' => $this->configModel->get('darkboard_card_score_bolder', 1),
+            'card_disable_click_opens_task' => $this->configModel->get('darkboard_card_disable_click_opens_task', 0),
 
             // task
             'task_comment_align_center' => $this->configModel->get('darkboard_task_comment_align_center', 1),
@@ -81,6 +82,7 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             'darkboard_card_no_border' => isset($form['card_no_border']) ? 1 : 0,
             'darkboard_card_background_alpha' => isset($form['card_background_alpha']) ? 1 : 0,
             'darkboard_card_score_bolder' => isset($form['card_score_bolder']) ? 1 : 0,
+            'darkboard_card_disable_click_opens_task' => isset($form['card_disable_click_opens_task']) ? 1 : 0,
 
             // task
             'darkboard_task_comment_align_center' => isset($form['task_comment_align_center']) ? 1 : 0,
@@ -281,5 +283,27 @@ class DarkboardController extends \Kanboard\Controller\PluginController
             $css .= file_get_contents($path . 'task_summary_without_border.min.css');
         }
         return $css;
+    }
+
+    /**
+     * Create a combined JS from the JS modules
+     * with the given user config.
+     *
+     * @return JS Response
+     */
+    public function createJS()
+    {
+        $path = __DIR__ . '/../Assets/js/';
+        $css = '';
+
+        if ($this->configModel->get('darkboard_card_disable_click_opens_task', 0) == 1) {
+            $css .= file_get_contents($path . 'disable_click_opens_task.min.js');
+        }
+
+        $this->response->withStatusCode(200);
+        $this->response->withContentType('text/javascript; charset=utf-8');
+        $this->response->withBody($css);
+        $this->response->withCache(31536000);
+        return $this->response->send();
     }
 }

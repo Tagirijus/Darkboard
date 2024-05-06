@@ -16,6 +16,9 @@ class Plugin extends Base
         // CSS - Asset Hook
         $this->template->hook->attach('template:layout:head', 'Darkboard:darkboard_css');
 
+        // JS - Dynamic Asset Hook
+        $this->template->hook->attach('template:layout:head', 'Darkboard:darkboard/darkboard_js');
+
         // Template Override
         $this->template->setTemplateOverride('board/table_column', 'Darkboard:board/table_column');
         $this->template->setTemplateOverride('task_list/task_details', 'Darkboard:task_list/task_details');
@@ -26,6 +29,7 @@ class Plugin extends Base
 
         // Extra Page - Routes
         $this->route->addRoute('/darkboard/css', 'DarkboardController', 'createCSS', 'Darkboard');
+        $this->route->addRoute('/darkboard/js', 'DarkboardController', 'createJS', 'Darkboard');
         $this->route->addRoute('/darkboard/config', 'DarkboardController', 'show', 'Darkboard');
     }
 
@@ -51,7 +55,7 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '1.2.1';
+        return '1.3.0';
     }
 
     public function getCompatibleVersion()
