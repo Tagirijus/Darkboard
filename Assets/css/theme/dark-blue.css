@@ -229,3 +229,7 @@ span.task-date-overdue {
   color: rgb(200,50,50);
   font-weight: bold;
 }
+
+a i.web-notification-icon {
+    color: var(--alert-color-error);
+}
