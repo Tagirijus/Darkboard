@@ -167,3 +167,8 @@ span.task-date-overdue {
   color: rgb(200,50,50);
   font-weight: bold;
 }
+
+.markdown pre {
+    background: rgb(80, 80, 80) !important;
+    color: var(--color-primary) !important;
+}

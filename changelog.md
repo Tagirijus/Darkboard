@@ -7,6 +7,7 @@
 
 _(most recent changes are listed on top):_
 - Added option to disable clicking a board card will open the task. With this I wanted to fix some kind of misbehaviour that tasks on my machine will get opened after I moved a card into another row. It seems like a bug to me yet I wanted to fix it this way, as long as I cannot reproduce it 100%.
+- Fixed Codeblocks being bright.
 
 
 ## v1.2

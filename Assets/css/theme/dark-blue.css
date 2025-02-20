@@ -233,3 +233,8 @@ span.task-date-overdue {
 a i.web-notification-icon {
     color: var(--alert-color-error);
 }
+
+.markdown pre {
+    background: rgb(80, 80, 80) !important;
+    color: var(--color-primary) !important;
+}
